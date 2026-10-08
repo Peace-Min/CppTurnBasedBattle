@@ -24,4 +24,15 @@ BattleApp        콘솔 실행 프로그램
 BattleTests      GoogleTest 테스트 프로젝트
 ```
 
-현재 저장소에는 문서만 있으며, 코드는 작업지시서에 따라 직접 추가합니다.
+## 빌드와 실행
+
+Visual Studio 2022, CMake 3.20 이상, C++17 컴파일러가 필요합니다. GoogleTest는 CMake가 첫 구성 단계에서 내려받습니다.
+
+```powershell
+cmake -S . -B build
+cmake --build build --config Debug
+ctest --test-dir build -C Debug --output-on-failure
+.\build\Debug\BattleApp.exe
+```
+
+Visual Studio에서는 `CMakeLists.txt`가 있는 폴더를 열면 됩니다. `BattleCore`는 정적 라이브러리이고, `BattleApp`과 `BattleTests`가 이를 사용합니다.
