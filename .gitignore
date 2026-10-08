@@ -4,6 +4,7 @@ x86/
 Debug/
 Release/
 out/
+build/
 packages/
 *.user
 *.suo
