@@ -1,0 +1,1 @@
+// BattleCore implementation starts here.

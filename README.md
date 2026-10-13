@@ -16,23 +16,22 @@ C# 개발자가 C++의 객체 수명, 소유권, 다형성, STL, GoogleTest를 �
 2. [작업지시서](docs/tasks.md)의 T01부터 순서대로 구현합니다.
 3. 각 작업의 완료조건을 확인하고, 막히는 코드는 질문합니다.
 
-## 권장 솔루션 구조
+## 솔루션 구조
 
 ```text
-BattleCore       게임 규칙과 도메인 클래스
-BattleApp        콘솔 실행 프로그램
-BattleTests      GoogleTest 테스트 프로젝트
+CppTurnBasedBattle.sln
+├── BattleCore    정적 라이브러리 프로젝트
+├── BattleApp     콘솔 실행 프로그램 프로젝트
+└── BattleTests   테스트 실행 프로젝트
 ```
 
-## 빌드와 실행
+## Visual Studio에서 빌드와 실행
 
-Visual Studio 2022, CMake 3.20 이상, C++17 컴파일러가 필요합니다. GoogleTest는 CMake가 첫 구성 단계에서 내려받습니다.
+Visual Studio 2022와 C++ 데스크톱 개발 도구가 필요합니다. 프로젝트는 C++20을 사용합니다.
 
-```powershell
-cmake -S . -B build
-cmake --build build --config Debug
-ctest --test-dir build -C Debug --output-on-failure
-.\build\Debug\BattleApp.exe
-```
+1. `CppTurnBasedBattle.sln`을 엽니다.
+2. 구성에서 `Debug`와 `x64`를 선택합니다.
+3. 솔루션을 빌드합니다.
+4. `BattleApp`을 시작 프로젝트로 선택하고 실행합니다.
 
-Visual Studio에서는 `CMakeLists.txt`가 있는 폴더를 열면 됩니다. `BattleCore`는 정적 라이브러리이고, `BattleApp`과 `BattleTests`가 이를 사용합니다.
+`BattleApp`과 `BattleTests`는 프로젝트 참조를 통해 `BattleCore`를 사용합니다.
